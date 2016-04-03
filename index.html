@@ -1,15 +1,158 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/index.css" />
+<script>
+window.onload=function(){
+	var oBox = document.getElementById('box');
+	var oUl = oBox.children[0];
+	var aLi = oUl.children;
+	var aImg = oUl.getElementsByTagName('img');
+	oUl.style.width = aLi.length*aLi[0].offsetWidth+'px';
+	var divC = oBox.offsetWidth/2;
+	oUl.onmousedown=function(ev){
+		var oEvent = ev||event;
+		var disX = oEvent.clientX-oUl.offsetLeft;
+		document.onmousemove=function(ev){
+			var oEvent = ev||event;
+			var l = oEvent.clientX-disX;
+			if(l>divC-(0+0.5)*aLi[0].offsetWidth){
+				l = divC-(0+0.5)*aLi[0].offsetWidth;
+			}else if(l<divC-(aLi.length-1+0.5)*aLi[0].offsetWidth){
+				l = divC-(aLi.length-1+0.5)*aLi[0].offsetWidth;
+			}
+			oUl.style.left = l+'px';
+			for(var i=0;i<aLi.length;i++){
+				var dis = divC-(oUl.offsetLeft+aLi[i].offsetLeft+aLi[i].offsetWidth/2);
+				var scale = 1-Math.abs(dis)/500;
+				(scale<0.5)&&(scale=0.5);
+				aImg[i].style.width = scale*520+'px';
+				aImg[i].style.height = scale*358+'px';
+				aImg[i].style.marginLeft = -(aImg[i].offsetWidth-260)/2+'px';
+				aImg[i].style.marginTop = -(aImg[i].offsetHeight-179)/2+'px';
+				aImg[i].style.zIndex = scale*100000;
+			}
+		};
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+			oUl.releaseCapture&&oUl.releaseCapture();
+		};
+		oUl.setCapture&&oUl.setCapture();
+		return false;
+	};
+	function setSize(){
+		for(var i=0;i<aLi.length;i++){
+			var dis = divC-(oUl.offsetLeft+aLi[i].offsetLeft+aLi[i].offsetWidth/2);
+			var scale = 1-Math.abs(dis)/500;
+			(scale<0.5)&&(scale=0.5);
+			aImg[i].style.width = scale*520+'px';
+			aImg[i].style.height = scale*358+'px';
+			aImg[i].style.marginLeft = -(aImg[i].offsetWidth-180)/2+'px';
+			aImg[i].style.marginTop = -(aImg[i].offsetHeight-179)/2+'px';
+			aImg[i].style.zIndex = scale*100000;
+		}
+	}
+	//先把它调到中间的位置
+	//oUl.style.left = divC-(1+0.5)*aLi[0].offsetWidth+'px';
+	setSize();
+};
 
-  <head>
-    <meta charset='utf-8'>
+</script>
+</head>
 
-    <title>Zhanghe7751.GitHub.com</title>
-  </head>
-
-  <body>
-<div style="height:300px; width:300px;background:black;"></div>
- 
-
-  </body>
+<body>
+<div class="head">
+	<div class="head-in">
+		<p class="on fl">START BOOTSTRAP</p>
+		<ul class="fr clearfix">
+			<li class="fl">PORTFOLIO</li>
+			<li class="fl">ABOUT</li>
+			<li class="fl">CONTACT</li>
+		</ul>
+	</div>
+</div>
+<div class="portfolio">
+	<div class="portfolio-in">
+		<img src="img/profile.png" alt="" />
+		<h2>START BOOTSTRAP</h2>
+		<span class="star"></span>
+		<h3>Web Developer - Graphic Artist - User Experience Designer</h3>
+	</div>
+</div>
+<div class="work">
+	<div class="title">
+		<h3>MY WORK</h3>
+		<span class="star"></span>
+	</div>
+	<ul class="trans clearfix">
+		<li class="fl">
+			<div class="front">
+				<img src="img/portfolio/cabin.png" alt="" />
+			</div>
+			<div class="back"></div>
+		</li>
+		<li class="fl">
+			<div class="front">
+				<img src="img/portfolio/cake.png" alt="" />
+			</div>
+			<div class="back"></div>
+		</li>
+		<li class="fl">
+			<div class="front">
+				<img src="img/portfolio/circus.png" alt="" />
+			</div>
+			<div class="back"></div>
+		</li>
+		<li class="fl">
+			<div class="front">
+				<img src="img/portfolio/game.png" alt="" />
+			</div>
+			<div class="back"></div>
+		</li>
+		<li class="fl">
+			<div class="front">
+				<img src="img/portfolio/submarine.png" alt="" />
+			</div>
+			<div class="back"></div>
+		</li>
+		<li class="fl">
+			<div class="front">
+				<img src="img/portfolio/safe.png" alt="" />
+			</div>
+			<div class="back"></div>
+		</li>
+	</ul>
+	
+</div>
+<div class="about">
+	<div class="title">
+		<h3>ABOUT</h3>
+		<span class="star"></span>
+	</div>
+	
+</div>
+<div class="contact">
+	<div class="title">
+		<h3>CONTACT</h3>
+		<span class="star"></span>
+	</div>
+	<div class="move" id="box">
+	<ul>
+		<li><img src="img/img2/1.jpg" /></li>
+		<li><img src="img/img2/2.jpg" /></li>
+		<li><img src="img/img2/3.jpg" /></li>
+		<li><img src="img/img2/4.jpg" /></li>
+		<li><img src="img/img2/5.jpg" /></li>
+		<li><img src="img/img2/6.jpg" /></li>
+		<li><img src="img/img2/7.jpg" /></li>
+		<li><img src="img/img2/8.jpg" /></li>
+	</ul>
+</div>
+</div>
+<div class="foot"></div>
+</body>
 </html>

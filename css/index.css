@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+.head{background:#2d3e50;width:100%;position:absolute;left:0;top:0;}
+.head-in{width:1140px;margin:0 auto;}
+.head-in ul li{font:bold 15px/80px 微软雅黑;color:#fff;padding:0 15px;}
+.head-in .on{font:bold 26px/80px 微软雅黑;color:#fff;}
+.portfolio{height:550px;padding-top:200px;background:#18bb9c;margin-bottom:80px;}
+.portfolio-in{text-align:center;}
+.portfolio-in .star{height:28px;width:250px;background:url(../img/bt.png);display:inline-block;}
+.portfolio-in h2{font:bold 58px/100px 微软雅黑;color:#fff;margin-top:20px;}
+.portfolio-in h3{font:bold 24px/70px 微软雅黑;color:#fff;}
+.work .title{text-align:center;}
+.work .title h3{font:bold 36px/74px 微软雅黑;color:#2b3e4c;}
+.work .title .star{height:28px;width:250px;background:url(../img/bt2.png);display:inline-block;}
+.work{width:1140px;overflow:hidden;margin:0 auto;margin-bottom:80px;}
+.work .trans{width:1170px;margin-top:20px;}
+.work .trans .front img{height:260px;width:360px;}
+.work .trans li{width:360px; height:260px; position:relative; top:0; left:0; margin-right:30px;margin-bottom:20px;-webkit-transform-style:preserve-3d; -webkit-transition:1s all ease; -webkit-transform:perspective(800px) rotateY(0deg);}
+.work .trans li div{position:absolute; top:0; left:0; width:100%; height:100%; text-align:center; line-height:300px; font-size:50px;}
+.work .trans li .front{-webkit-transform:translateZ(1px);}
+.work .trans li .back{background:green; -webkit-transform:translateZ(-1px) scale(-1,1); }
+.work .trans li:hover{-webkit-transform:perspective(800px) rotateY(180deg);}
+.about{height:500px;background:#18bb9c;margin-bottom:80px;padding-top:50px;}
+.about .title{text-align:center;}
+.about .title h3{font:bold 36px/74px 微软雅黑;color:#fff;}
+.about .title .star{height:28px;width:250px;background:url(../img/bt.png);display:inline-block;}
+.contact{height:500px;background:#fff;margin-bottom:80px;}
+.contact .title{text-align:center;}
+.contact .title h3{font:bold 36px/74px 微软雅黑;color:#313e51;}
+.contact .title .star{height:28px;width:250px;background:url(../img/bt2.png);display:inline-block;}
+.foot{height:400px;background:#2d3e50;width:100%;}
+#box{width:700px; height:358px; margin:20px auto; position:relative; top:0; left:0; overflow:hidden;}
+#box ul{position:absolute; top:90px; left:0;}
+#box ul li{float:left;width:260px; height:179px; position:relative; top:0; left:0;}
+#box ul li img{width:260px; position:absolute; top:0; left:0;}
